@@ -11,9 +11,6 @@ function getPlayerInput ()
 
     if (choices.includes (selection))
         return selection;
-
-    else
-        return false;
 }
 
 function playRound (computerSelection, playerSelection)
