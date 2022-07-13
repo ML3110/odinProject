@@ -1,8 +1,14 @@
+var choices = ["rock", "paper", "scissors"];
+
 function computerPlay ()
 {
-    var choices = ["Rock", "Paper", "Scissors"];
-
-    return choices [Math.floor (Math.random () * 3)];
+    return choices [Math.floor (Math.random () * choices.length)];
 }
 
-console.log (computerPlay ())
+function getPlayerInput ()
+{
+    var selection = prompt ("Enter your selection").toLowerCase ();
+
+    if (choices.includes (selection))
+        return selection;
+}
