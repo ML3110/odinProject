@@ -11,6 +11,9 @@ function getPlayerInput ()
 
     if (choices.includes (selection))
         return selection;
+
+    else
+        return false;
 }
 
 function playRound (computerSelection, playerSelection)
@@ -23,31 +26,48 @@ function playRound (computerSelection, playerSelection)
     else if (computerSelection == "rock")
     {
         if (playerSelection == "paper")
-            result = "Win";
+            result = "Win - Paper beats Rock";
         else if (playerSelection == "scissors")
-            result = "Lose";
+            result = "Lose - Scissors loses to rock";
     }
 
     else if (computerSelection == "paper")
     {
         if (playerSelection == "rock")
-            result = "Lose";
+            result = "Lose - Rock loses to Paper";
         else if (playerSelection == "scissors")
-            result = "Win";
+            result = "Win - Scissors beats Paper";
     }
 
     else if (computerSelection == "scissors")
     {
         if (playerSelection == "rock")
-            result = "Win";
+            result = "Win - Rock beats Scissors";
         else if (playerSelection == "paper")
-            result = "Lose";
+            result = "Lose - Paper loses to Rock";
     }
 
     return result;
 }
 
-const computerSelection = computerPlay ();
-const playerSelection = getPlayerInput ();
+function game ()
+{
+    var winCount = 0;
 
-console.log (playRound (computerSelection, playerSelection));
+    for (var i = 0; i < 5; i++)
+    {
+        const computerSelection = computerPlay ();
+        const playerSelection = getPlayerInput ();
+
+        var res = playRound (computerSelection, playerSelection);
+
+        console.log (res);
+
+        if (res.includes ("Win"))
+            winCount++;
+    }
+
+    console.log ("You won " + winCount);
+}
+
+game ();
