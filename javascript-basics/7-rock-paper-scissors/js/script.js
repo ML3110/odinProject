@@ -59,14 +59,10 @@ function game (playerSelection)
     var computerSelection = computerPlay ();
     var res = playRound (computerSelection, playerSelection);
 
-    console.log (res);
-
     const results = document.querySelector ('#results');
 
     const content = document.createElement ('div');
-
     content.classList.add ('content');
-
     content.textContent = res;
 
     results.appendChild (content);
