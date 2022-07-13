@@ -54,24 +54,21 @@ function playRound (computerSelection, playerSelection)
     return result;
 }
 
-function game ()
+function game (playerSelection)
 {
-    var winCount = 0;
+    var computerSelection = computerPlay ();
+    var res = playRound (computerSelection, playerSelection);
 
-    for (var i = 0; i < 5; i++)
-    {
-        const computerSelection = computerPlay ();
-        const playerSelection = getPlayerInput ();
+    console.log (res);
 
-        var res = playRound (computerSelection, playerSelection);
+    const results = document.querySelector ('#results');
 
-        console.log (res);
+    const content = document.createElement ('div');
 
-        if (res.includes ("Win"))
-            winCount++;
-    }
+    content.classList.add ('content');
 
-    console.log ("You won " + winCount);
+    content.textContent = res;
+
+    results.appendChild (content);
 }
 
-game ();
