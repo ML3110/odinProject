@@ -7,10 +7,17 @@ function computerPlay ()
 
 function getPlayerInput ()
 {
-    var selection = prompt ("Enter your selection").toLowerCase ();
+    var choiceMade = false;
 
-    if (choices.includes (selection))
-        return selection;
+    while (! choiceMade)
+    {
+        var selection = prompt ("Enter your selection").toLowerCase ();
+
+        if (choices.includes (selection))
+            choiceMade = true;
+    }
+
+    return selection;
 }
 
 function playRound (computerSelection, playerSelection)
